@@ -1,11 +1,13 @@
 {
+  "homepage": "https://maneesh-nandreddy.github.io/seashore_tech-react",
   "name": "11_ecommerce_web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
