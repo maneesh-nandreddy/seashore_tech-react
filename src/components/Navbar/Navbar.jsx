@@ -61,7 +61,7 @@ const DropdownLinks = [
   },  
   {
     id: 6,
-    name: "More...",
+    name: "More..",
     link: "/#",
   },
 ];
