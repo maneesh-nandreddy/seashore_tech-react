@@ -1,75 +1,91 @@
-import React from "react";
+// Navbar.jsx
+import React, { useState } from "react";
 import Logo from "../../assets/seashore_logo.png";
+import DarkMode from "./DarkMode";
 import { IoMdSearch } from "react-icons/io";
 import { IoIosContact } from "react-icons/io";
-import { FaCaretDown } from "react-icons/fa";
-import DarkMode from "./DarkMode";
-
-const Menu = [
-  {
-    id: 1,
-    name: "Home",
-    link: "/",
-  },
-  {
-    id: 2,
-    name: "About us",
-    link: "/about",
-  },
-  {
-    id: 3,
-    name: "Clients",
-    link: "/clients",
-  },
-  {
-    id: 3,
-    name: "Achievements",
-    link: "/achievements",
-  },
-  {
-    id: 4,
-    name: "PTE Test Center",
-    link: "/pte-center",
-  },
-];
-
-const DropdownLinks = [
-  {
-    id: 1,
-    name: "VIRTUALIZATION & APPLICATION DELIVERY",
-    link: "/#",
-  },
-  {
-    id: 2,
-    name: "CLOUD Design",
-    link: "/#",
-  },
-  {
-    id: 3,
-    name: "ENTERPRISE COMPUTING",
-    link: "/#",
-  },
-  {
-    id: 4,
-    name: "NETWORKING",
-    link: "/#",
-  },
-  {
-    id: 5 ,
-    name: "DIGITAL ENTERPRISE SERVICES",
-    link: "/#",
-  },  
-  {
-    id: 6,
-    name: "More..",
-    link: "/#",
-  },
-];
-
+import { test_center } from "../PTEcenter/test_center";
+import Ptecenter from "../PTEcenter/Ptecenter";
 const Navbar = ({ handleOrderPopup }) => {
+  const [activeNav, setActiveNav] = useState("#");
+  const [active, setActive] = useState("");
+
+  const navLinks = [
+    {
+      id: "/",
+      name: "Home",
+    },
+    {
+      id: "#about",
+      name: "About us",
+    },
+    {
+      id: "#clients",
+      name: "Clients",
+    },
+    {
+      id: "#achievements",
+      name: "Achievements",
+    },
+    {
+      id: {Ptecenter},
+      name: "PTE Test Center",
+    },
+    {
+      id: "#services",
+      name: "Services",
+    },
+  ];
+
+  const DropdownLinks = [
+    {
+      id: 1,
+      name: "VIRTUALIZATION & APPLICATION DELIVERY",
+      link: "/#",
+    },
+    {
+      id: 2,
+      name: "CLOUD Design",
+      link: "/#",
+    },
+    {
+      id: 3,
+      name: "ENTERPRISE COMPUTING",
+      link: "/#",
+    },
+    {
+      id: 4,
+      name: "NETWORKING",
+      link: "/#",
+    },
+    {
+      id: 5,
+      name: "DIGITAL ENTERPRISE SERVICES",
+      link: "/#",
+    },
+    {
+      id: 6,
+      name: "More..",
+      link: "/#",
+    },
+  ];
+
+  const [showPtecenter, setShowPtecenter] = useState(false);
+
+  const handleButtonClick = () => {
+    window.open("", "_blank");
+  };
+
+  const navigateToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
-      {/* upper Navbar */}
+    <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200">
+      {/* ... existing code ... */}
       <div className="bg-primary/40 py-2">
         <div className="container flex justify-between items-center">
           <div>
@@ -107,43 +123,44 @@ const Navbar = ({ handleOrderPopup }) => {
           </div>
         </div>
       </div>
-      {/* lower Navbar */}
-      <div data-aos="zoom-in" className="flex justify-center">
-        <ul className="sm:flex hidden items-center gap-4">
-          {Menu.map((data) => (
-            <li key={data.id}>
+      <div data-aos="zoom-in" className="flex justify-center ">
+        {/* <ul className='list-none hidden sm:flex flex-row gap-10'>
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${
+                active === link.name ? "text-red-500" : "text-secondary"
+              } hover:text-red-500 text-[18px] font-medium cursor-pointer`}
+              onclick = {() => setActiveNav(link.name)}
+            >
+              <a href={`${link.id}`} onClick={() => setActiveNav(`${link.id}`)} className={activeNav === '#' ? 'active' : ''}>{link.name}</a>
+            </li>
+          ))}
+        </ul> */}
+        <ul className="list-none hidden sm:flex flex-row gap-10">
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${
+                active === link.name ? "text-red-500" : "text-secondary"
+              } hover:text-red-500 text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActiveNav(link.name)}
+            >
               <a
-                href={data.link}
-                className="inline-block px-4 hover:text-primary duration-200"
+                href={link.id}
+                onClick={() => setActiveNav(link.name)}
+                className={activeNav === "#" ? "active" : ""}
               >
-                {data.name}
+                {link.name}
               </a>
             </li>
           ))}
-          {/* Simple Dropdown and Links */}
-          <li className="group relative cursor-pointer">
-            <a href="#" className="flex items-center gap-[2px] py-2">
-              Services
-              <span>
-                <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
-              </span>
-            </a>
-            <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white p-2 text-black shadow-md">
-              <ul>
-                {DropdownLinks.map((data) => (
-                  <li key={data.id}>
-                    <a
-                      href={data.link}
-                      className="inline-block w-full rounded-md p-2 hover:bg-primary/20 "
-                    >
-                      {data.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
         </ul>
+
+        {/* <div>
+          <button onClick={handleButtonClick}>Open Ptecenter</button>
+          <Ptecenter />
+        </div> */}
       </div>
     </div>
   );

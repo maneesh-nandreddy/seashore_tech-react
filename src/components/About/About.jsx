@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../../components/About/About.css';
+import ManagingDirector from './director';
 
 const About = () => {
   useEffect(() => {
@@ -28,7 +29,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
+    <section className="container mx-auto p-4" id='about'>
       <h2 className="text-3xl font-bold mb-4">Welcome to Our Story</h2>
       <p className="text-gray-700">
         Seashore Technologies Private Limited is a Private incorporated on 01 December 2016 and a dynamic player at the intersection of Hardware and Networking Training, Website Development, and Android App Creation.
@@ -45,8 +46,8 @@ const About = () => {
           </span>
         </h2>
       </div>
-    </div>
-    
+      <ManagingDirector/>
+    </section>
   );
 };
 

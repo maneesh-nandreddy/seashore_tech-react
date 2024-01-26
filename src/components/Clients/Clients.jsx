@@ -49,9 +49,9 @@ const ProductsData = [
   },
 ];
 
-const Products = () => {
+const Clients = () => {
   return (
-    <div className="mt-12 mb-12">
+    <div className="mt-12 mb-12" id="clients">
       <div className="container">
         {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
@@ -104,4 +104,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Clients;

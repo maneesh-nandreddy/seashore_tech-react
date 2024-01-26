@@ -1,12 +1,9 @@
 import React from "react";
 import Hero from "./components/Hero/Hero2";
-import Products from "./components/Products/Products";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TopProducts from "./components/TopProducts/TopProducts";
 import Banner from "./components/Banner/Banner";
 import Subscribe from "./components/Subscribe/Subscribe";
-import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 import Navbar from "./components/Navbar/Navbar";
@@ -14,10 +11,11 @@ import About from "./components/About/About";
 import Ptecenter from "./components/PTEcenter/Ptecenter";
 import Services from "./components/Seashoreservices/Services";
 import ManagingDirector from "./components/About/director";
+import Clients from "./components/Clients/Clients";
+import Achievements from "./components/Achievements/Achievements";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
-
   const handleOrderPopup = () => {
     setOrderPopup(!orderPopup);
   };
@@ -36,14 +34,12 @@ const App = () => {
       <Navbar handleOrderPopup={handleOrderPopup}/>
       <Hero handleOrderPopup={handleOrderPopup} />
       <About/>
-      <ManagingDirector/>
-      <Products />
-      <TopProducts handleOrderPopup={handleOrderPopup} />
-      <Banner />
+      <Clients/>
+      <Achievements/>
       <Services/>
-      <Ptecenter/>
+      <Banner />
+      {/* <Ptecenter/> */}
       <Subscribe />
-      <Testimonials />
       <Footer />
       <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>

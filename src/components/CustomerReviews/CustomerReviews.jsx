@@ -36,7 +36,7 @@ const TestimonialData = [
   },
 ];
 
-const Testimonials = () => {
+const CustomerReviews = () => {
   var settings = {
     dots: true,
     arrows: false,
@@ -44,7 +44,7 @@ const Testimonials = () => {
     speed: 500,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
@@ -129,4 +129,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default CustomerReviews;

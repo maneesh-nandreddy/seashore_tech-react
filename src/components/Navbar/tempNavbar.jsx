@@ -1,43 +1,29 @@
-import React from "react";
+// Navbar.jsx
+import React, { useState } from "react";
 import Logo from "../../assets/seashore_logo.png";
+import DarkMode from "./DarkMode";
+import About from "../About/About";
+import Hero from "../Hero/Hero2";
+import Clients from "../Clients/Clients";
+import Achievements from "../Achievements/Achievements";
+import Services from "../Seashoreservices/Services";
+import Ptecenter from "../PTEcenter/Ptecenter";
 import { IoMdSearch } from "react-icons/io";
 import { IoIosContact } from "react-icons/io";
-import { FaCaretDown } from "react-icons/fa";
 
-const Menu = [
-  {
-    id: 1,
-    name: "Home",
-    link: "/#home",
-  },
-  {
-    id: 2,
-    name: "About us",
-    link: "/#aboutus",
-  },
-  {
-    id: 3,
-    name: "Clients",
-    link: "/#clients",
-  },
-  {
-    id: 3,
-    name: "Achievements",
-    link: "/#achi",
-  },
-  {
-    id: 4,
-    name: "Aerospace",
-    link: "/#aerospace",
-  },
-];
+const Navbar = ({ handleOrderPopup }) => {
+  const [currentPage, setCurrentPage] = useState("home");
 
+  const navigateToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-const TempNav = ({ handleOrderPopup }) => {
-  
   return (
-    <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
-      {/* upper Navbar */}
+    <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200">
+      {/* ... existing code ... */}
       <div className="bg-primary/40 py-2">
         <div className="container flex justify-between items-center">
           <div>
@@ -68,53 +54,34 @@ const TempNav = ({ handleOrderPopup }) => {
               </span>
               <IoIosContact className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
+            {/* Darkmode Switch */}
+            <div>
+              <DarkMode />
+            </div>
           </div>
         </div>
       </div>
-      {/* lower Navbar */}
+
       <div data-aos="zoom-in" className="flex justify-center">
         <ul className="sm:flex hidden items-center gap-4">
-          {Menu.map((data) => (
-            <li key={data.id}>
-              <a
-                href={data.link}
-                className="inline-block px-4 hover:text-primary duration-200"
-              >
-                {data.name}
-              </a>
-            </li>
-          ))}
-          {/* Simple Dropdown and Links */}
-          <li className="group relative cursor-pointer">
-            <a href="#services" className="flex items-center gap-[2px] py-2">
-              Services
-              <span>
-                <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
-              </span>
-            </a>
-            <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white p-2 text-black shadow-md">
-              <ul className="inline-block w-full rounded-md p-2 hover:bg-primary/20">
-                <li onClick={() => handleMenuClick('home')}>Home</li>
-                <li onClick={() => handleMenuClick('aboutus')}>About</li>
-                <li onClick={() => handleMenuClick('clients')}>Clients</li>
-                <li onClick={() => handleMenuClick('achi')}>Achievements</li>
-                <li onClick={() => handleMenuClick('aerospace')}>Aerospace</li>
-                <div>
-                <li onClick={() => handleMenuClick('services')} hover={
-                    DropdownLinks.map((data) => (
-                        <li key={data.id}>
-                          <a
-                            href={data.link}
-                            className="inline-block w-full rounded-md p-2 hover:bg-primary/20 "
-                          >
-                            {data.name}
-                          </a>
-                        </li>
-                      ))
-                }>Services</li>
-                </div>
-              </ul>
-            </div>
+          <li>
+            <button onClick={() => navigateToSection("home")}>Home</button>
+          </li>
+          <li>
+            <button onClick={() => navigateToSection("about")}>About us</button>
+          </li>
+          <li>
+            <button onClick={() => navigateToSection("clients")}>Clients</button>
+          </li>
+          <li>
+            <button onClick={() => navigateToSection("achievements")}>Achievements</button>
+          </li>
+          {/* added a new navigation to pte center page */}
+          <li>
+            <button onClick={() => navigateToSection("ptecenter2")}>PTE Test Center</button>
+          </li>
+          <li>
+            <button onClick={() => navigateToSection("services")}>Services</button>
           </li>
         </ul>
       </div>
@@ -122,4 +89,4 @@ const TempNav = ({ handleOrderPopup }) => {
   );
 };
 
-export default TempNav;
+export default Navbar;

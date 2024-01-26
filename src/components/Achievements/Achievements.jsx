@@ -28,9 +28,9 @@ const ProductsData = [
   },
   
 ];
-const TopProducts = ({ handleOrderPopup }) => {
+const Achievements = ({ handleOrderPopup }) => {
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 pt-10 pb-50">
+    <div className="bg-gray-100 dark:bg-gray-800 pt-10 pb-50" id="achievements">
       <div className="container" >
         {/* Header section */}
         <div className="text-left mb-24">
@@ -87,4 +87,4 @@ const TopProducts = ({ handleOrderPopup }) => {
   );
 };
 
-export default TopProducts;
+export default Achievements;

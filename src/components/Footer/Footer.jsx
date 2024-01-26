@@ -48,7 +48,7 @@ const Footerlinkstwo=[
   },
   {
     title: "PTE Test Center",
-    link: "/#contact",
+    link: "/#about",
   },
   {
     title: "Clients",

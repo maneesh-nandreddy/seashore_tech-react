@@ -13,7 +13,7 @@ const testCentersData = [
 ]
 function Ptecenter() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4" id='ptetestcenter'>
         <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-bold p-5">
             PTE Test Center
             </h1>      
