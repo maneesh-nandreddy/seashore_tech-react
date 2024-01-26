@@ -75,7 +75,7 @@ const Hero = ({ handleOrderPopup }) => {
                 <p className="text-sm hidden sm:block">{data.description}</p>
                 <div className="mt-4">
                   <button
-                    onClick={handleOrderPopup}
+                    onClick={() => handleOrderPopup()}
                     className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
                   >
                     See more!!

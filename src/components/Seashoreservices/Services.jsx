@@ -20,14 +20,14 @@ const Services = () => {
         opacity: 0.5,
         };
     const virtuBgStyle = {
-        backgroundImage: `url(${virtuBgImage})`,
-        opacity: 0.5,
+        // backgroundImage: `url(${virtuBgImage})`,
+        // opacity: 0.5,
         };
     const cardsbg = {
-        backgroundImage2: `url(${cardsbgImage})`,
+        // backgroundImage2: `url(${cardsbgImage})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        opacity: 0.5,
+        // opacity: 0.5,
         };
     
   return (
@@ -38,7 +38,7 @@ const Services = () => {
           <h1 className="text-4xl font-bold text-primary">OUR SERVICES</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-red-500" >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-black" >
           {/* Virtualization & Application Delivery */}
           {/* <div className="border p-4 bg-white dark:bg-gray-900 rounded-lg" style={smallScreen ? virtuBgStyle : virtuBgStyle2}> */}
           <div className="border p-4 bg-white dark:bg-gray-900 rounded-lg " style={cardsbg}>
