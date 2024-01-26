@@ -63,10 +63,10 @@ const Footer = () => {
             </p>
           </div>
           {/* Footer Links */}
-          <div className="ml-28">
+          <div className="ml-28 hidden md:block">
             <ul className="flex flex-col gap-3 text-xl">
               {FooterLinks.map((data) => (
-                <li key={data.id}>
+                <li key={data.id} className="inline-block px-4 hover:text-primary duration-200">
                   <a
                     href={data.link}
                     className=""
